@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Hex RGB Generator</title>
+</head>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+body {
+	width: 100%;
+	height: 100%;
+}
+h1 {
+	text-align: center;
+	font-size: 3rem;
+	line-height: 10vh;
+	padding: 40vh 0;
+}
+</style>
+<style id="mainColors">
+body{background-color: black;}
+h1{color:white;}
+</style>
+<body>
+	<h1 id='color'>#000000<br>rgb(0,0,0)</h1>
+</body>
+<script type="text/javascript">
+
+function componentToHex(c){
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r,g,b){
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+document.onkeydown=function(e){
+	if(e.keyCode == 32){
+		newColor = [Math.floor(Math.random()*256),Math.floor(Math.random()*256),Math.floor(Math.random()*256)];
+		if(newColor[0] + newColor[1] + newColor[2] > (255 * 3)/2){
+			document.getElementById("mainColors").innerHTML = "body{background-color: rgb(" + newColor[0] + "," + newColor[1] + "," + newColor[2] + ");}h1{color:black;}";
+		}else{
+			document.getElementById("mainColors").innerHTML = "body{background-color: rgb(" + newColor[0] + "," + newColor[1] + "," + newColor[2] + ");}h1{color:white;}";
+		}
+		document.getElementById("color").innerHTML = "" + rgbToHex(newColor[0],newColor[1],newColor[2]) + "<br>rgb(" + newColor[0] + ", " + newColor[1] + ", " + newColor[2] + ")";
+	}
+}
+
+</script>
+</html>
