@@ -1,2 +1,3 @@
 # Hex-RGB-Generator
-Simple RGB and Hex color generator.
+Simple random color generator, which can be found at https://xtrp.github.io/hex-rgb-generator.
+Simply press space and a new color will be generated.
